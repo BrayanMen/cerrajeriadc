@@ -1,0 +1,53 @@
+---
+const faqs = [
+  {
+    question: "¿Cuánto tiempo tardan en llegar?",
+    answer: "Nuestro tiempo de respuesta promedio es de 15 a 30 minutos en toda Capital Federal. Al ser un servicio de urgencia 24 horas, siempre tenemos técnicos listos para salir."
+  },
+  {
+    question: "¿Atienden en mi barrio?",
+    answer: "Sí, ofrecemos cobertura completa en todos los barrios de la Ciudad Autónoma de Buenos Aires. Desde Nuñez hasta Lugano, llegamos a donde nos necesites."
+  },
+  {
+    question: "¿Pueden abrir una puerta sin romper la cerradura?",
+    answer: "Absolutamente. En más del 95% de los casos, realizamos aperturas sin ningún tipo de daño a la cerradura o a la puerta. Nuestros técnicos son profesionales en técnicas de apertura no destructivas."
+  },
+  {
+    question: "¿Qué hago si perdí las llaves de mi casa?",
+    answer: "No te preocupes. Lo primero es llamarnos. Un técnico acudirá para realizar la apertura. Por tu seguridad, te recomendaremos realizar un cambio de combinación o de cerradura para evitar que quien encuentre tus llaves pueda acceder a tu domicilio."
+  },
+  {
+    question: "¿Aceptan tarjetas de crédito o Mercado Pago?",
+    answer: "Sí, aceptamos todos los medios de pago: efectivo, tarjetas de débito y crédito, y transferencias a través de Mercado Pago para tu comodidad."
+  },
+  {
+    question: "¿El presupuesto tiene costo?",
+    answer: "No. El presupuesto es siempre sin cargo y se informa antes de realizar cualquier trabajo. Transparencia total, sin sorpresas."
+  },
+];
+--- 
+
+<section id="faq" class="py-14 bg-secondary/30">
+  <div class="max-w-4xl mx-auto px-4">
+    <!-- Header -->
+    <div class="text-center mb-12 animate-on-scroll">
+      <h2 class="text-3xl md:text-5xl font-bold mb-4">Preguntas Frecuentes</h2>
+      <p class="text-muted-foreground max-w-2xl mx-auto">Aclaramos tus dudas para que puedas tomar la mejor decisión, rápido.</p>
+    </div>
+
+    <!-- Accordion -->
+    <div class="space-y-4">
+      {faqs.map((faq, index) => (
+        <details class="animate-on-scroll group bg-card p-6 rounded-lg glass-card" style={`animation-delay: ${index * 0.1}s;`}>
+          <summary class="flex items-center justify-between cursor-pointer font-semibold text-lg">
+            {faq.question}
+            <span class="transform transition-transform duration-300 group-open:rotate-45 text-primary text-2xl">+</span>
+          </summary>
+          <p class="mt-4 text-muted-foreground leading-relaxed">
+            {faq.answer}
+          </p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

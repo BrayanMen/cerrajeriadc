@@ -1,0 +1,87 @@
+---
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
+import reviews from '../../data/reviews.json';
+---
+
+<div class="reviews-slider-container relative w-full h-full overflow-hidden">
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      {reviews.map(review => (
+        <div class="swiper-slide">
+          <div class="glass-card bg-card/50 p-6 md:p-8 rounded-2xl h-full flex flex-col">
+            <div class="flex-grow">
+                <div class="flex items-center mb-4">
+                    <div class="flex text-primary">
+                        {Array(review.stars || 5).fill(0).map(() => (
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 7.09l6.572-.955L10 0l2.939 6.135 6.572.955-4.756 4.455 1.123 6.545z"/></svg>
+                        ))}
+                    </div>
+                </div>
+                <p class="text-muted-foreground italic mb-4 flex-grow">"{review.review}"</p>
+            </div>
+            <div class="flex items-center gap-3 mt-auto">
+                <div class="w-10 h-10 bg-muted rounded-full flex items-center justify-center font-bold text-foreground">{review.name.charAt(0)}</div>
+                <div>
+                    <p class="font-semibold text-foreground/90">{review.name}</p>
+                    <p class="text-xs text-muted-foreground">Cliente Verificado</p>
+                </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Navegación -->
+  <div class="swiper-button-prev absolute top-1/2 -translate-y-1/2 left-0 md:left-1 w-10 h-10 bg-primary/80 text-black rounded-full flex items-center justify-center cursor-pointer hover:bg-primary transition-colors z-10"></div>
+  <div class="swiper-button-next absolute top-1/2 -translate-y-1/2 right-0 md:right-1 w-10 h-10 bg-primary/80 text-black rounded-full flex items-center justify-center cursor-pointer hover:bg-primary transition-colors z-10"></div>
+  
+  <!-- Paginación -->
+  <div class="swiper-pagination text-center mt-6"></div>
+</div>
+
+<script>
+  import Swiper from 'swiper';
+  import { Navigation, Pagination } from 'swiper/modules';
+  import 'swiper/css';
+  import 'swiper/css/pagination';
+
+  const swiper = new Swiper('.swiper-container', {
+    modules: [Navigation, Pagination],
+    loop: true,
+    slidesPerView: 1,
+    spaceBetween: 20,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+        768: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+        }
+    }
+  });
+
+  // Iconos para la navegación
+  document.querySelector('.swiper-button-prev').innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>`;
+  document.querySelector('.swiper-button-next').innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>`;
+</script>
+
+<style is:global>
+    .swiper-pagination-bullet {
+        background-color: var(--color-muted-foreground);
+        opacity: 0.5;
+        transition: all 0.2s ease-in-out;
+    }
+    .swiper-pagination-bullet-active {
+        background-color: var(--color-primary);
+        transform: scale(1.2);
+        opacity: 1;
+    }
+</style>

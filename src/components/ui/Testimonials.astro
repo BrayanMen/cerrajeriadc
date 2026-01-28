@@ -1,0 +1,42 @@
+---
+import { Image } from "astro:assets";
+import ReviewsSlider from "../core/ReviewsSlider.astro";
+import localBg from "../../assets/local-bg.jpg"
+---
+
+<section id="testimonials" class="py-14 relative">
+  <Image
+    src={localBg} 
+    alt="Interior del local de cerrajería"
+    width={1600}
+    height={1196}
+    format="webp" 
+    quality={80}
+    loading="lazy"
+    class="absolute inset-0 w-full h-full object-cover z-0"
+  />
+
+  <!-- Overlay para legibilidad -->
+  <div
+    class="absolute inset-0 bg-black/70 backdrop-blur-[2px] z-0"
+    aria-hidden="true"
+  >
+  </div>
+  <div class="max-w-4xl mx-auto px-4">
+    <!-- Header -->
+    <div class="text-center mb-12 animate-on-scroll">
+      <h2 class="text-3xl md:text-5xl font-bold mb-4">
+        Clientes <span class="text-gradient">satisfechos</span>
+      </h2>
+      <p class="text-muted-foreground max-w-2xl mx-auto">
+        La satisfacción de nuestros clientes es nuestra mejor carta de
+        presentación. Estas son algunas de sus opiniones reales.
+      </p>
+    </div>
+
+    <!-- Slider -->
+    <div class="animate-on-scroll" style="animation-delay: 0.2s;">
+      <ReviewsSlider client:visible />
+    </div>
+  </div>
+</section>

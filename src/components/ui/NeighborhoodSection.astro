@@ -1,0 +1,40 @@
+---
+import ServiceIcon from "../core/ServiceIcon.astro";
+
+const barrios = [
+    "Palermo", "Caballito", "Belgrano", "Recoleta", "Villa Urquiza", "Almagro",
+    "Flores", "Nuñez", "Saavedra", "Villa Crespo", "San Telmo", "Boedo", "y más..."
+];
+---
+
+<section id="neighborhoods" class="pb-10 max-w-7xl">
+    <div class="text-center animate-on-scroll mb-4">
+        <h3 class="text-sm uppercase text-muted-foreground tracking-widest">Presentes en todo <span class="text-gradient">CABA</span></h3>
+    </div>
+
+    <div class="animate-on-scroll w-full" style="animation-delay: 0.2s;">
+        <div class="relative w-full overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_10%,_black_90%,transparent_100%)]">
+        <div class="flex w-max animate-scroll">
+            {barrios.map(barrio => (
+                <div class="mx-10 flex items-center justify-center gap-2">
+                    <ServiceIcon name="check" size={8} />
+                <span class="text-2xl font-bold text-muted-foreground/50 hover:text-muted-foreground/80 transition-colors whitespace-nowrap cursor-default">
+                    {barrio}
+                </span>
+            </div>
+            ))}
+            <span class="px-4 py-2 bg-secondary/50 border border-border rounded-full text-sm font-medium text-muted-foreground">y más!</span>
+        </div>
+    </div>
+    </div>
+</section>
+<style>
+    @keyframes scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+  
+    .animate-scroll {
+      animation: scroll 45s linear infinite;
+    }
+  </style>

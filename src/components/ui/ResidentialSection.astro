@@ -1,0 +1,124 @@
+---
+import ServiceIcon from "../core/ServiceIcon.astro";
+import Stat from "../core/Stat.astro";
+
+const residentialServices = [
+  {
+    icon: "door",
+    title: "Apertura de Puertas",
+    description: "Abrimos tu puerta sin dañarla. ¿Olvidaste las llaves? ¿Se trabó la cerradura? Llegamos en minutos.",
+  },
+  {
+    icon: "safe",
+    title: "Cambio de Cerraduras",
+    description: "Instalamos cerraduras de alta seguridad, multipunto, cerrojos y sistemas antirobo.",
+  },
+  {
+    icon: "fingerprint",
+    title: "Cerraduras Digitales",
+    description: "Cerraduras electrónicas con código, huella o tarjeta. Tecnología actual, sin cuentos.",
+  },
+  {
+    icon: "shield",
+    title: "Puertas Blindadas",
+    description: "Instalación y reparación de puertas blindadas. Seguridad real para tu familia.",
+  },
+  {
+    icon: "key",
+    title: "Duplicado de Llaves",
+    description: "Copias de llaves comunes, de seguridad, multipunto y codificadas.",
+  },
+  {
+    icon: "home",
+    title: "Seguridad Integral",
+    description: "Evaluamos tu hogar y te recomendamos mejoras reales, no humo.",
+  },
+];
+---
+<section id="residencial" class="py-10 lg:py-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+  
+        <!-- Content -->
+        <div class="order-2 lg:order-1">
+          <span class="animate-on-scroll inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4" style="animation-delay: 0s;">
+            Cerrajería Residencial
+          </span>
+  
+          <h2 class="animate-on-scroll text-3xl md:text-4xl lg:text-5xl font-bold mb-6" style="animation-delay: 0.1s;">
+            Protege tu <span class="text-gradient">hogar y familia</span>
+          </h2>
+  
+          <p class="animate-on-scroll text-lg text-muted-foreground mb-8" style="animation-delay: 0.2s;">
+            Soluciones completas de cerrajería para casas y departamentos en Capital Federal. Desde emergencias hasta sistemas de alta seguridad.
+          </p>
+  
+          <div class="animate-on-scroll grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8" style="animation-delay: 0.3s;">
+            {residentialServices.map(service => (
+              <div class="flex bg-background-secondary p-4 rounded-lg items-start gap-4 transition-colors hover:bg-white/5">
+                <div class="w-8 h-8 flex items-center justify-center shrink-0 text-primary">
+                  <ServiceIcon name={service.icon} size={10} />
+                </div>
+                <div>
+                  <h3 class="font-semibold text-base mb-1">{service.title}</h3>
+                  <p class="text-sm text-muted-foreground leading-snug">{service.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+  
+          <div class="animate-on-scroll mt-10" style="animation-delay: 0.4s;">
+            <a
+              href="tel:+5491170029897"
+              class="w-full sm:w-auto flex items-center justify-center gap-3 bg-primary text-black px-6 py-4 rounded-xl font-bold hover:scale-[1.02] transition-transform duration-200 ease-in-out"
+            >
+              <ServiceIcon name="phone" size={5} />
+              Consultar Servicio Residencial
+            </a>
+          </div>
+        </div>
+  
+        <!-- Visual -->
+        <div class="order-1 lg:order-2 relative">
+          <div class="animate-on-scroll" style="animation-delay: 0.2s;">
+            <div class="glass-card rounded-3xl p-6 sm:p-8 relative overflow-hidden">
+              <div class="absolute -top-10 -right-10 w-40 h-40 bg-primary/20 rounded-full blur-2xl"></div>
+  
+              <div class="relative z-10">
+                <div class="flex items-center gap-4 mb-8">
+                  <div class="w-16 h-16 bg-primary p-2 rounded-2xl flex items-center justify-center">
+                    <ServiceIcon name="home" size={32} inverted />
+                  </div>
+                  <div>
+                    <h3 class="text-xl sm:text-2xl font-bold">Hogares Seguros</h3>
+                    <p class="text-muted-foreground">Capital Federal</p>
+                  </div>
+                </div>
+  
+                <div class="space-y-5">
+                  <Stat label="Cerraduras instaladas" value="+3.500" />
+                  <Stat label="Aperturas de emergencia" value="+8.000" />
+                  <Stat label="Clientes satisfechos" value="99,5%" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  
+  <style>
+    .glass-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    }
+    .text-gradient {
+      background: linear-gradient(to right, #FACC15, #FBBF24, #F59E0B);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+  }
+  </style>

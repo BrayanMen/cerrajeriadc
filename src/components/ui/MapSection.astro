@@ -1,0 +1,59 @@
+---
+const MAP_URL =
+  "https://www.google.com/maps?q=Bartolom%C3%A9+Mitre+3987+CABA&output=embed"
+const MAP_LINK = "https://maps.app.goo.gl/LFGparoHeiZ9Fheo8"
+---
+
+<section
+  id="location"
+  class="py-10 bg-secondary/30"
+  aria-labelledby="map-title"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <h2
+        id="map-title"
+        class="text-3xl md:text-4xl font-bold text-foreground mb-4"
+      >
+        Nuestra ubicación
+      </h2>
+      <p class="text-muted-foreground max-w-2xl mx-auto">
+       <span class="text-primary font-semibold">Cerrajería DC</span> – Atención 24 horas en Capital Federal. Llegamos en minutos.
+      </p>
+    </div>
+
+    <!-- Map Card -->
+    <div class="relative rounded-3xl overflow-hidden glass-card">
+
+      <!-- Mapa -->
+      <iframe
+        src={MAP_URL}
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        class="w-full h-[420px] border-0"
+        aria-label="Mapa de ubicación de Cerrajería DC en Buenos Aires"
+      ></iframe>
+
+      <!-- Overlay info -->
+      <div class="absolute bottom-10 left-6 right-6 flex flex-col bg-background/50 backdrop-blur rounded-2xl p-6 shadow-lg">
+        <address class="not-italic text-sm text-foreground">
+          <strong>Cerrajería DC 24Hs</strong><br />
+          Bartolomé Mitre 3987, CABA<br />
+          Atención inmediata en toda Capital Federal
+        </address>
+
+        <a
+          href={MAP_LINK}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center mt-4 text-primary font-semibold hover:underline"
+          aria-label="Abrir ubicación en Google Maps"
+        >
+          Ver en Google Maps →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
