@@ -3,7 +3,15 @@
 import reviews from '../../data/reviews.json';
 ---
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<link 
+  rel="stylesheet" 
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" 
+  media="print" 
+  onload="this.media='all'" 
+/>
+<noscript>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</noscript>
 
 <div class="reviews-slider-container relative w-full px-4 md:px-12">
   <div class="swiper-container overflow-hidden">
