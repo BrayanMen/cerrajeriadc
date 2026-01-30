@@ -8,6 +8,8 @@ import "../styles/global.css";
 <!doctype html>
 <html lang="es">
 	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!-- SEO Básico y Optimizado -->
 		<title>Cerrajero a Domicilio 24/7 | Cerrajería DC | CABA</title>
 		<meta
@@ -18,12 +20,14 @@ import "../styles/global.css";
 			name="keywords"
 			content="cerrajero 24 horas, cerrajeria, cerrajero caba, cerrajero capital federal, apertura de puertas, cambio de cerradura, cerrajero de autos, cerrajero urgente"
 		/>
-		<meta name="robots" content="index, follow" />
+		<link rel="canonical" href="https://cerrajeriadc.com" />
+		<meta name="robots" content="index, follow, max-image-preview:large" />
 		<meta name="author" content="Cerrajeria DC" />
 
-		<link rel="canonical" href="https://cerrajeriadc24hs.com" />
-		<link rel="icon" type="image/svg+xml" href="/logo.png" />
+		<link rel="preconnect" href="https://www.googletagmanager.com" />
+		<link rel="dns-prefetch" href="https://www.google-analytics.com" />
 
+		<link rel="icon" type="image/svg+xml" href="/logo.png" />
 
 		<!-- Open Graph (para redes sociales) -->
 		<meta
@@ -36,14 +40,13 @@ import "../styles/global.css";
 		/>
 		<meta property="og:type" content="website" />
 		<meta property="og:locale" content="es_AR" />
-		<meta property="og:url" content="https://cerrajeriadc24hs.com" />
+		<meta property="og:url" content="https://cerrajeriadc.com" />
 		<meta
 			property="og:image"
-			content="https://cerrajeriadc24hs.com/og-image.jpg"
+			content="https://cerrajeriadc.com/logo.png"
 		/>
 
-		<!-- Viewport y Tema -->
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!-- Tema -->
 		<meta name="theme-color" content="#1a1a2e" />
 
 		<!-- Schema.org JSON-LD (Datos Estructurados) -->
@@ -51,11 +54,12 @@ import "../styles/global.css";
 			{
 				"@context": "https://schema.org",
 				"@type": "Locksmith",
-				"@id": "https://cerrajeriadc24hs.com/#locksmith",
 				"name": "Cerrajeria DC",
-				"url": "https://cerrajeriadc24hs.com",
+				"image": "https://cerrajeriadc.com/logo.png",
+				"@id": "https://cerrajeriadc.com/#locksmith",
+				"url": "https://cerrajeriadc.com",
+				"telephone": "+5491170029897",
 				"description": "Servicio de cerrajería profesional 24 horas en Buenos Aires",
-				"telephone": "+54 9 11 7002-9897",
 				"address": {
 					"@type": "PostalAddress",
 					"streetAddress": "Bartolomé Mitre 3987",
@@ -84,9 +88,26 @@ import "../styles/global.css";
 					"closes": "23:59"
 				},
 				"priceRange": "$$",
-				"areaServed": {
-					"@type": "AdministrativeArea",
-					"name": "Ciudad Autónoma de Buenos Aires"
+				"areaServed": "Ciudad Autónoma de Buenos Aires",
+				"hasOfferCatalog": {
+					"@type": "OfferCatalog",
+					"name": "Servicios de Cerrajería",
+					"itemListElement": [
+						{
+							"@type": "Offer",
+							"itemOffered": {
+								"@type": "Service",
+								"name": "Urgencias Nocturnas 24hs"
+							}
+						},
+						{
+							"@type": "Offer",
+							"itemOffered": {
+								"@type": "Service",
+								"name": "Cerrajería Programada"
+							}
+						}
+					]
 				},
 				"sameAs": [
 					"https://maps.app.goo.gl/LFGparoHeiZ9Fheo8",
@@ -105,27 +126,31 @@ import "../styles/global.css";
 
 <script>
 	document.addEventListener("DOMContentLoaded", () => {
-		const animatedElements = document.querySelectorAll(".animate-on-scroll");
+		const animatedElements =
+			document.querySelectorAll(".animate-on-scroll");
 
 		if (!("IntersectionObserver" in window)) {
-			animatedElements.forEach(element => {
+			animatedElements.forEach((element) => {
 				element.classList.remove("opacity-0");
 			});
 			return;
 		}
 
-		const observer = new IntersectionObserver((entries) => {
-			entries.forEach(entry => {
-				if (entry.isIntersecting) {
-					entry.target.classList.add("is-visible");
-					observer.unobserve(entry.target);
-				}
-			});
-		}, {
-			threshold: 0.1
-		});
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add("is-visible");
+						observer.unobserve(entry.target);
+					}
+				});
+			},
+			{
+				threshold: 0.1,
+			},
+		);
 
-		animatedElements.forEach(element => {
+		animatedElements.forEach((element) => {
 			observer.observe(element);
 		});
 	});
