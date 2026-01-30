@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://cerrajeriadc24hs.com/sitemap.xml
+Sitemap: https://cerrajeriadc.com/sitemap.xml
