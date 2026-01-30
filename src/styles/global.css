@@ -15,7 +15,7 @@
   --secondary: oklch(0.20 0.01 260);
   --secondary-foreground: oklch(0.98 0 0);
   --muted: oklch(0.22 0.01 260);
-  --muted-foreground: oklch(0.65 0 0);
+  --muted-foreground: oklch(0.90 0 0);
   --accent: oklch(0.82 0.16 85);
   --accent-foreground: oklch(0.15 0.01 260);
   --destructive: oklch(0.65 0.2 25);
@@ -84,27 +84,55 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
   html {
     scroll-behavior: smooth;
   }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px oklch(0.82 0.16 85 / 0.3); }
-  50% { box-shadow: 0 0 40px oklch(0.82 0.16 85 / 0.6); }
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 @keyframes slide-up {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .animate-float {
@@ -113,6 +141,8 @@
 
 .animate-pulse-glow {
   animation: pulse-glow 2s ease-in-out infinite;
+  will-change: transform, opacity;
+  /* Avisamos a la GPU */
 }
 
 .animate-on-scroll {
