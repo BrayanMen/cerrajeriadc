@@ -1,15 +1,32 @@
 ---
+// Importaciones de fuentes y estilos globales
 import "@fontsource/inter/400.css";
 import "@fontsource/inter/600.css";
 import "@fontsource/inter/700.css";
 import "../styles/global.css";
+
+// Props para SEO dinámico
+export interface Props {
+	title?: string;
+	description?: string;
+  canonicalURL?: string;
+  image?: string;
+}
+
+// Valores por defecto para las props
+const {
+	title = "Cerrajero a Domicilio 24/7 | Cerrajería DC | CABA",
+	description = "Servicio de cerrajero de urgencia 24 horas en Capital Federal. Apertura de puertas, autos y cajas fuertes sin daños. ¡Llegamos en 20 minutos!",
+  canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
+  image = new URL("/logo.png", Astro.site).href,
+} = Astro.props;
 ---
 
 <!doctype html>
 <html lang="es">
 	<head>
 		<!-- Google Tag Manager -->
-		<script>
+		<script type="text/partytown">
 			(function (w, d, s, l, i) {
 				w[l] = w[l] || [];
 				w[l].push({
@@ -27,10 +44,11 @@ import "../styles/global.css";
 		<!-- End Google Tag Manager -->
 		<!-- Google tag (gtag.js) -->
 		<script
+			type="text/partytown"
 			async
 			src="https://www.googletagmanager.com/gtag/js?id=G-7QJJ3S16JK"
 		></script>
-		<script>
+		<script type="text/partytown">
 			window.dataLayer = window.dataLayer || [];
 			function gtag() {
 				dataLayer.push(arguments);
@@ -43,19 +61,13 @@ import "../styles/global.css";
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 		<!-- SEO Básico y Optimizado -->
-		<title>Cerrajero a Domicilio 24/7 | Cerrajería DC | CABA</title>
-		<meta
-			name="description"
-			content="Servicio de cerrajero de urgencia 24 horas en Capital Federal. Apertura de puertas, autos y cajas fuertes sin daños. ¡Llegamos en 20 minutos!"
-		/>
-		<meta
-			name="keywords"
-			content="cerrajero 24 horas, cerrajeria, cerrajero caba, cerrajero capital federal, apertura de puertas, cambio de cerradura, cerrajero de autos, cerrajero urgente"
-		/>
-		<link rel="canonical" href="https://cerrajeriadc.com.ar" />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonicalURL} />
 		<meta name="robots" content="index, follow, max-image-preview:large" />
 		<meta name="author" content="Cerrajeria DC" />
 
+		<!-- Preconexiones para mejorar rendimiento -->
 		<link rel="preconnect" href="https://www.googletagmanager.com" />
 		<link rel="dns-prefetch" href="https://www.google-analytics.com" />
 		<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
@@ -64,26 +76,17 @@ import "../styles/global.css";
 		<link rel="icon" type="image/svg+xml" href="/logo.png" />
 
 		<!-- Open Graph (para redes sociales) -->
-		<meta
-			property="og:title"
-			content="Cerrajería de Urgencia 24hs en Buenos Aires | Cerrajeria DC"
-		/>
-		<meta
-			property="og:description"
-			content="Servicio profesional de cerrajería de emergencia. Aperturas, cambios de cerradura y más. Disponibles 24/7 en toda CABA."
-		/>
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
 		<meta property="og:type" content="website" />
 		<meta property="og:locale" content="es_AR" />
-		<meta property="og:url" content="https://cerrajeriadc.com.ar" />
-		<meta
-			property="og:image"
-			content="https://cerrajeriadc.com.ar/logo.png"
-		/>
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:image" content={image} />
 
 		<!-- Tema -->
 		<meta name="theme-color" content="#1a1a2e" />
 
-		<!-- Schema.org JSON-LD (Datos Estructurados) -->
+		<!-- Schema.org JSON-LD (Datos Estructurados ENRIQUECIDOS) -->
 		<script type="application/ld+json">
 			{
 				"@context": "https://schema.org",
@@ -93,7 +96,15 @@ import "../styles/global.css";
 				"@id": "https://cerrajeriadc.com.ar/#locksmith",
 				"url": "https://cerrajeriadc.com.ar",
 				"telephone": "+5491170029897",
-				"description": "Servicio de cerrajería profesional 24 horas en Buenos Aires",
+				"description": "Servicio de cerrajería profesional 24 horas en Buenos Aires, especializado en urgencias, aperturas y seguridad para hogares, autos y comercios.",
+        "knowsAbout": [
+          "Apertura de Puertas",
+          "Cerrajería de Autos",
+          "Apertura de Cajas Fuertes",
+          "Cerrajería Comercial",
+          "Puertas Blindadas",
+          "Cambio de Cerraduras"
+        ],
 				"address": {
 					"@type": "PostalAddress",
 					"streetAddress": "Bartolomé Mitre 3987",
@@ -109,15 +120,7 @@ import "../styles/global.css";
 				},
 				"openingHoursSpecification": {
 					"@type": "OpeningHoursSpecification",
-					"dayOfWeek": [
-						"Monday",
-						"Tuesday",
-						"Wednesday",
-						"Thursday",
-						"Friday",
-						"Saturday",
-						"Sunday"
-					],
+					"dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
 					"opens": "00:00",
 					"closes": "23:59"
 				},
@@ -127,20 +130,8 @@ import "../styles/global.css";
 					"@type": "OfferCatalog",
 					"name": "Servicios de Cerrajería",
 					"itemListElement": [
-						{
-							"@type": "Offer",
-							"itemOffered": {
-								"@type": "Service",
-								"name": "Urgencias Nocturnas 24hs"
-							}
-						},
-						{
-							"@type": "Offer",
-							"itemOffered": {
-								"@type": "Service",
-								"name": "Cerrajería Programada"
-							}
-						}
+						{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Urgencias Nocturnas 24hs"}},
+						{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Cerrajería Programada"}}
 					]
 				},
 				"sameAs": [
@@ -153,13 +144,14 @@ import "../styles/global.css";
 
 	<body class="antialiased font-inter">
 		<!-- Google Tag Manager (noscript) -->
-		<noscript
-			><iframe
+		<noscript>
+      <iframe
 				src="https://www.googletagmanager.com/ns.html?id=GTM-TJNJQV5B"
 				height="0"
 				width="0"
-				style="display:none;visibility:hidden"></iframe></noscript
-		>
+				style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
 		<!-- End Google Tag Manager (noscript) -->
 		<main role="main">
 			<slot />
@@ -169,8 +161,7 @@ import "../styles/global.css";
 
 <script>
 	document.addEventListener("DOMContentLoaded", () => {
-		const animatedElements =
-			document.querySelectorAll(".animate-on-scroll");
+		const animatedElements = document.querySelectorAll(".animate-on-scroll");
 
 		if (!("IntersectionObserver" in window)) {
 			animatedElements.forEach((element) => {
