@@ -9,16 +9,16 @@ import "../styles/global.css";
 export interface Props {
 	title?: string;
 	description?: string;
-  canonicalURL?: string;
-  image?: string;
+	canonicalURL?: string;
+	image?: string;
 }
 
 // Valores por defecto para las props
 const {
-	title = "Cerrajero a Domicilio 24/7 | Cerrajería DC | CABA",
-	description = "Servicio de cerrajero de urgencia 24 horas en Capital Federal. Apertura de puertas, autos y cajas fuertes sin daños. ¡Llegamos en 20 minutos!",
-  canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
-  image = new URL("/logo.png", Astro.site).href,
+	title = "Cerrajería 24 horas en Capital Federal | Cerrajería DC | Urgencia YA",
+	description = "Servicio de cerrajeria de urgencia 24 horas en Capital Federal. Apertura de puertas, autos y cajas fuertes. ¡Llamanos ya!. ¡Llegamos en 20 minutos!",
+	canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
+	image = new URL("/logo.png", Astro.site).href,
 } = Astro.props;
 ---
 
@@ -97,14 +97,16 @@ const {
 				"url": "https://cerrajeriadc.com.ar",
 				"telephone": "+5491170029897",
 				"description": "Servicio de cerrajería profesional 24 horas en Buenos Aires, especializado en urgencias, aperturas y seguridad para hogares, autos y comercios.",
-        "knowsAbout": [
-          "Apertura de Puertas",
-          "Cerrajería de Autos",
-          "Apertura de Cajas Fuertes",
-          "Cerrajería Comercial",
-          "Puertas Blindadas",
-          "Cambio de Cerraduras"
-        ],
+				"knowsAbout": [
+					"Apertura de Puertas",
+					"Cerrajería de Autos",
+					"Apertura de Cajas Fuertes",
+					"Cerrajería Comercial",
+					"Puertas Blindadas",
+					"Cambio de Cerraduras",
+					"Servicios de Urgencia",
+					"Servivio de Cerrajeria 24 horas"
+				],
 				"address": {
 					"@type": "PostalAddress",
 					"streetAddress": "Bartolomé Mitre 3987",
@@ -120,7 +122,15 @@ const {
 				},
 				"openingHoursSpecification": {
 					"@type": "OpeningHoursSpecification",
-					"dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+					"dayOfWeek": [
+						"Monday",
+						"Tuesday",
+						"Wednesday",
+						"Thursday",
+						"Friday",
+						"Saturday",
+						"Sunday"
+					],
 					"opens": "00:00",
 					"closes": "23:59"
 				},
@@ -130,8 +140,27 @@ const {
 					"@type": "OfferCatalog",
 					"name": "Servicios de Cerrajería",
 					"itemListElement": [
-						{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Urgencias Nocturnas 24hs"}},
-						{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Cerrajería Programada"}}
+						{
+							"@type": "Offer",
+							"itemOffered": {
+								"@type": "Service",
+								"name": "Cerrajeria de Emergencia 24 horas"
+							}
+						},
+						{
+							"@type": "Offer",
+							"itemOffered": {
+								"@type": "Service",
+								"name": "Cerrajería de Autos"
+							}
+						},
+						{
+							"@type": "Offer",
+							"itemOffered": {
+								"@type": "Service",
+								"name": "Apertura de Cajas Fuertes"
+							}
+						}
 					]
 				},
 				"sameAs": [
@@ -145,13 +174,14 @@ const {
 	<body class="antialiased font-inter">
 		<!-- Google Tag Manager (noscript) -->
 		<noscript>
-      <iframe
+			<iframe
 				src="https://www.googletagmanager.com/ns.html?id=GTM-TJNJQV5B"
 				height="0"
 				width="0"
-				style="display:none;visibility:hidden">
-      </iframe>
-    </noscript>
+				style="display:none;visibility:hidden"
+			>
+			</iframe>
+		</noscript>
 		<!-- End Google Tag Manager (noscript) -->
 		<main role="main">
 			<slot />
@@ -161,7 +191,8 @@ const {
 
 <script>
 	document.addEventListener("DOMContentLoaded", () => {
-		const animatedElements = document.querySelectorAll(".animate-on-scroll");
+		const animatedElements =
+			document.querySelectorAll(".animate-on-scroll");
 
 		if (!("IntersectionObserver" in window)) {
 			animatedElements.forEach((element) => {
