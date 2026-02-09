@@ -4,6 +4,8 @@ import "@fontsource/inter/400.css";
 import "@fontsource/inter/600.css";
 import "@fontsource/inter/700.css";
 import "../styles/global.css";
+import reviewsData from "../data/reviews.json";
+import servicesData from "../data/services.json";
 
 // Props para SEO dinámico
 export interface Props {
@@ -20,6 +22,29 @@ const {
 	canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
 	image = new URL("/logo.png", Astro.site).href,
 } = Astro.props;
+
+const ratingValue = 5;
+const reviewCount = reviewsData.length;
+const schemaReviews = reviewsData.map((r) => ({
+	"@type": "Review",
+	author: { "@type": "Person", name: r.name },
+	reviewBody: r.review,
+	reviewRating: {
+		"@type": "Rating",
+		ratingValue: r.stars,
+		bestRating: ratingValue,
+	},
+	// "datePublished":r.date,
+}));
+
+const schemaServices = servicesData.map((s) => ({
+	"@type": "Offer",
+	itemOffered: {
+		"@type": "Service",
+		name: s.name,
+		description: s.description,
+	},
+}));
 ---
 
 <!doctype html>
@@ -48,6 +73,7 @@ const {
 			async
 			src="https://www.googletagmanager.com/gtag/js?id=G-7QJJ3S16JK"
 		></script>
+
 		<script type="text/partytown">
 			window.dataLayer = window.dataLayer || [];
 			function gtag() {
@@ -66,6 +92,10 @@ const {
 		<link rel="canonical" href={canonicalURL} />
 		<meta name="robots" content="index, follow, max-image-preview:large" />
 		<meta name="author" content="Cerrajeria DC" />
+		<meta name="geo.region" content="AR-C" />
+		<meta name="geo.placename" content="Buenos Aires" />
+		<meta name="geo.position" content="-34.609761;-58.422562" />
+		<meta name="ICBM" content="-34.609761, -58.422562" />
 
 		<!-- Preconexiones para mejorar rendimiento -->
 		<link rel="preconnect" href="https://www.googletagmanager.com" />
@@ -87,17 +117,24 @@ const {
 		<meta name="theme-color" content="#1a1a2e" />
 
 		<!-- Schema.org JSON-LD (Datos Estructurados ENRIQUECIDOS) -->
-		<script type="application/ld+json">
-			{
+		<script
+			type="application/ld+json"
+			set:html={JSON.stringify({
 				"@context": "https://schema.org",
 				"@type": "Locksmith",
-				"name": "Cerrajeria DC",
-				"image": "https://cerrajeriadc.com.ar/logo.png",
+				serviceType:
+					"Cerrajería 24 Horas - Urgencias en Capital Federal - CABA",
+				provider: {
+					"@type": "LocalBusiness",
+					name: "Cerrajeria DC",
+					url: "https://cerrajeriadc.com.ar",
+				},
+				image: "https://cerrajeriadc.com.ar/logo.png",
 				"@id": "https://cerrajeriadc.com.ar/#locksmith",
-				"url": "https://cerrajeriadc.com.ar",
-				"telephone": "+5491170029897",
-				"description": "Servicio de cerrajería profesional 24 horas en Buenos Aires, especializado en urgencias, aperturas y seguridad para hogares, autos y comercios.",
-				"knowsAbout": [
+				telephone: "+5491170029897",
+				description:
+					"Servicio de cerrajería profesional 24 horas en Buenos Aires, especializado en urgencias, aperturas y seguridad para hogares, autos y comercios.",
+				knowsAbout: [
 					"Apertura de Puertas",
 					"Cerrajería de Autos",
 					"Apertura de Cajas Fuertes",
@@ -105,70 +142,66 @@ const {
 					"Puertas Blindadas",
 					"Cambio de Cerraduras",
 					"Servicios de Urgencia",
-					"Servivio de Cerrajeria 24 horas"
+					"Servivio de Cerrajeria 24 horas",
 				],
-				"address": {
-					"@type": "PostalAddress",
-					"streetAddress": "Bartolomé Mitre 3987",
-					"addressLocality": "Ciudad Autónoma de Buenos Aires",
-					"addressRegion": "CABA",
-					"postalCode": "C1201AAW",
-					"addressCountry": "AR"
-				},
-				"geo": {
+				geo: {
 					"@type": "GeoCoordinates",
-					"latitude": "-34.60976108214114",
-					"longitude": "-58.42256222049576"
+					latitude: "-34.60976108214114",
+					longitude: "-58.42256222049576",
 				},
-				"openingHoursSpecification": {
+				openingHoursSpecification: {
 					"@type": "OpeningHoursSpecification",
-					"dayOfWeek": [
+					dayOfWeek: [
 						"Monday",
 						"Tuesday",
 						"Wednesday",
 						"Thursday",
 						"Friday",
 						"Saturday",
-						"Sunday"
+						"Sunday",
 					],
-					"opens": "00:00",
-					"closes": "23:59"
+					opens: "00:00",
+					closes: "23:59",
 				},
-				"priceRange": "$$",
-				"areaServed": "Ciudad Autónoma de Buenos Aires",
-				"hasOfferCatalog": {
+				priceRange: "$$",
+				address: {
+					"@type": "PostalAddress",
+					streetAddress: "Bartolomé Mitre 3987",
+					addressLocality: "Ciudad Autónoma de Buenos Aires",
+					addressRegion: "CABA",
+					postalCode: "C1201AAW",
+					addressCountry: "AR",
+				},
+				areaServed: [
+					{ "@type": "Place", name: "Almagro" },
+					{ "@type": "Place", name: "Palermo" },
+					{ "@type": "Place", name: "Recoleta" },
+					{ "@type": "Place", name: "Caballito" },
+					{ "@type": "Place", name: "Villa Crespo" },
+					{ "@type": "Place", name: "Balvanera" },
+					{ "@type": "Place", name: "Monserrat" },
+					{ "@type": "Place", name: "San Nicolás" },
+					{ "@type": "Place", name: "Capital Federal" },
+				],
+				hasOfferCatalog: {
 					"@type": "OfferCatalog",
-					"name": "Servicios de Cerrajería",
-					"itemListElement": [
-						{
-							"@type": "Offer",
-							"itemOffered": {
-								"@type": "Service",
-								"name": "Cerrajeria de Emergencia 24 horas"
-							}
-						},
-						{
-							"@type": "Offer",
-							"itemOffered": {
-								"@type": "Service",
-								"name": "Cerrajería de Autos"
-							}
-						},
-						{
-							"@type": "Offer",
-							"itemOffered": {
-								"@type": "Service",
-								"name": "Apertura de Cajas Fuertes"
-							}
-						}
-					]
+					name: "Cerrajería 24 Horas - Urgencias en CABA",
+					itemListElement: schemaServices,
 				},
-				"sameAs": [
-					"https://maps.app.goo.gl/LFGparoHeiZ9Fheo8",
-					"https://www.instagram.com/cerrajeriadc24hs"
-				]
-			}
-		</script>
+				sameAs: [
+					"https://www.google.com/maps/place/?q=place_id:ChIJs1bzAfvLvJURpyZi-Q1Ng2U",
+					"https://www.instagram.com/cerrajeriadc24hs",
+				],
+				aggregateRating: {
+					"@type": "AggregateRating",
+					ratingValue: ratingValue,
+					reviewCount: reviewCount,
+					bestRating: "5",
+					worstRating: "1",
+				},
+				review: schemaReviews,
+			})}
+		/>
 	</head>
 
 	<body class="antialiased font-inter">

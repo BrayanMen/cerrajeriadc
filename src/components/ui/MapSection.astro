@@ -1,7 +1,7 @@
 ---
 const MAP_URL =
-  "https://www.google.com/maps?q=Bartolom%C3%A9+Mitre+3987+CABA&output=embed"
-const MAP_LINK = "https://maps.app.goo.gl/LFGparoHeiZ9Fheo8"
+  "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d410.4723270962745!2d-58.4229049!3d-34.6097592!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccbfb01f356b3%3A0x65834d0df96226a7!2sCerrajer%C3%ADa%20DC%20urgencias%20las%2024hs!5e0!3m2!1ses!2sar!4v1770661675026!5m2!1ses!2sar";
+const MAP_LINK = "https://maps.app.goo.gl/tERAqBbz4qFvH5Ng6";
 ---
 
 <section
@@ -10,7 +10,6 @@ const MAP_LINK = "https://maps.app.goo.gl/LFGparoHeiZ9Fheo8"
   aria-labelledby="map-title"
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
     <!-- Header -->
     <div class="text-center mb-12">
       <h2
@@ -20,24 +19,27 @@ const MAP_LINK = "https://maps.app.goo.gl/LFGparoHeiZ9Fheo8"
         Nuestra ubicación
       </h2>
       <p class="text-muted-foreground max-w-2xl mx-auto">
-       <span class="text-primary font-semibold">Cerrajería DC</span> – Atención 24 horas en Capital Federal. Llegamos en minutos.
+        <span class="text-primary font-semibold">Cerrajería DC</span> – Atención 24
+        horas en Capital Federal. Llegamos en minutos.
       </p>
     </div>
 
     <!-- Map Card -->
     <div class="relative rounded-3xl overflow-hidden glass-card">
-
       <!-- Mapa -->
       <iframe
         src={MAP_URL}
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
-        class="w-full h-[420px] border-0"
+        class="w-full h-[450px] border-0"
         aria-label="Mapa de ubicación de Cerrajería DC en Buenos Aires"
       ></iframe>
+  
 
       <!-- Overlay info -->
-      <div class="absolute bottom-10 left-6 right-6 flex flex-col bg-background/50 backdrop-blur rounded-2xl p-6 shadow-lg">
+      <div
+        class="absolute bottom-10 left-6 right-6 flex flex-col bg-background/50 backdrop-blur rounded-2xl p-6 shadow-lg"
+      >
         <address class="not-italic text-sm text-foreground">
           <strong>Cerrajería DC 24Hs</strong><br />
           Bartolomé Mitre 3987, CABA<br />
