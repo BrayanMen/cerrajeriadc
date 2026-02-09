@@ -122,15 +122,14 @@ const schemaServices = servicesData.map((s) => ({
 			set:html={JSON.stringify({
 				"@context": "https://schema.org",
 				"@type": "Locksmith",
+				"@id": "https://cerrajeriadc.com.ar/#locksmith",
 				serviceType:
 					"Cerrajería 24 Horas - Urgencias en Capital Federal - CABA",
-				provider: {
-					"@type": "LocalBusiness",
-					name: "Cerrajeria DC",
-					url: "https://cerrajeriadc.com.ar",
-				},
+
+				name: "Cerrajeria DC",
+				url: "https://cerrajeriadc.com.ar",
+
 				image: "https://cerrajeriadc.com.ar/logo.png",
-				"@id": "https://cerrajeriadc.com.ar/#locksmith",
 				telephone: "+5491170029897",
 				description:
 					"Servicio de cerrajería profesional 24 horas en Buenos Aires, especializado en urgencias, aperturas y seguridad para hogares, autos y comercios.",
