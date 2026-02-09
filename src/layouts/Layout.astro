@@ -23,6 +23,11 @@ const {
 	image = new URL("/logo.png", Astro.site).href,
 } = Astro.props;
 
+const siteUrl = Astro.site?.href ?? "https://cerrajeriadc.com.ar/";
+const normalizedImage = image.startsWith("http")
+	? image
+	: new URL(image, siteUrl).href;
+
 const ratingValue = 5;
 const reviewCount = reviewsData.length;
 const schemaReviews = reviewsData.map((r) => ({
@@ -111,7 +116,13 @@ const schemaServices = servicesData.map((s) => ({
 		<meta property="og:type" content="website" />
 		<meta property="og:locale" content="es_AR" />
 		<meta property="og:url" content={canonicalURL} />
-		<meta property="og:image" content={image} />
+		<meta property="og:image" content={normalizedImage} />
+		<meta property="og:image:alt" content="Cerrajería DC - Servicio de urgencias 24 horas" />
+		<meta property="og:site_name" content="Cerrajería DC" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={normalizedImage} />
 
 		<!-- Tema -->
 		<meta name="theme-color" content="#1a1a2e" />
@@ -121,84 +132,109 @@ const schemaServices = servicesData.map((s) => ({
 			type="application/ld+json"
 			set:html={JSON.stringify({
 				"@context": "https://schema.org",
-				"@type": "Locksmith",
-				"@id": "https://cerrajeriadc.com.ar/#locksmith",
-				serviceType:
-					"Cerrajería 24 Horas - Urgencias en Capital Federal - CABA",
-
-				name: "Cerrajeria DC",
-				url: "https://cerrajeriadc.com.ar",
-
-				image: "https://cerrajeriadc.com.ar/logo.png",
-				telephone: "+5491170029897",
-				description:
-					"Servicio de cerrajería profesional 24 horas en Buenos Aires, especializado en urgencias, aperturas y seguridad para hogares, autos y comercios.",
-				knowsAbout: [
-					"Apertura de Puertas",
-					"Cerrajería de Autos",
-					"Apertura de Cajas Fuertes",
-					"Cerrajería Comercial",
-					"Puertas Blindadas",
-					"Cambio de Cerraduras",
-					"Servicios de Urgencia",
-					"Servivio de Cerrajeria 24 horas",
+				"@graph": [
+					{
+						"@type": "WebSite",
+						"@id": "https://cerrajeriadc.com.ar/#website",
+						url: "https://cerrajeriadc.com.ar/",
+						name: "Cerrajería DC",
+						inLanguage: "es-AR",
+					},
+					{
+						"@type": "WebPage",
+						"@id": `${canonicalURL}#webpage`,
+						url: canonicalURL,
+						name: title,
+						description,
+						isPartOf: { "@id": "https://cerrajeriadc.com.ar/#website" },
+						inLanguage: "es-AR",
+					},
+					{
+						"@type": "Locksmith",
+						"@id": "https://cerrajeriadc.com.ar/#locksmith",
+						serviceType:
+							"Cerrajería 24 horas de urgencia en Capital Federal (CABA)",
+						name: "Cerrajería DC",
+						url: "https://cerrajeriadc.com.ar/",
+						image: "https://cerrajeriadc.com.ar/logo.png",
+						telephone: "+5491170029897",
+						description:
+							"Servicio de cerrajería profesional 24 horas en Buenos Aires, especializado en urgencias, aperturas y seguridad para hogares, autos y comercios.",
+						knowsAbout: [
+							"Apertura de puertas",
+							"Cerrajería de autos",
+							"Apertura de cajas fuertes",
+							"Cerrajería comercial",
+							"Puertas blindadas",
+							"Cambio de cerraduras",
+							"Servicio de cerrajería 24 horas",
+						],
+						geo: {
+							"@type": "GeoCoordinates",
+							latitude: "-34.60976108214114",
+							longitude: "-58.42256222049576",
+						},
+						openingHoursSpecification: [
+							{
+								"@type": "OpeningHoursSpecification",
+								dayOfWeek: [
+									"Monday",
+									"Tuesday",
+									"Wednesday",
+									"Thursday",
+									"Friday",
+									"Saturday",
+									"Sunday",
+								],
+								opens: "00:00",
+								closes: "23:59",
+							},
+						],
+						priceRange: "$$",
+						contactPoint: {
+							"@type": "ContactPoint",
+							telephone: "+5491170029897",
+							contactType: "customer support",
+							availableLanguage: ["es", "en"],
+						},
+						address: {
+							"@type": "PostalAddress",
+							streetAddress: "Bartolomé Mitre 3987",
+							addressLocality: "Ciudad Autónoma de Buenos Aires",
+							addressRegion: "CABA",
+							postalCode: "C1201AAW",
+							addressCountry: "AR",
+						},
+						areaServed: [
+							{ "@type": "Place", name: "Almagro" },
+							{ "@type": "Place", name: "Palermo" },
+							{ "@type": "Place", name: "Recoleta" },
+							{ "@type": "Place", name: "Caballito" },
+							{ "@type": "Place", name: "Villa Crespo" },
+							{ "@type": "Place", name: "Balvanera" },
+							{ "@type": "Place", name: "Monserrat" },
+							{ "@type": "Place", name: "San Nicolás" },
+							{ "@type": "Place", name: "Capital Federal" },
+						],
+						hasOfferCatalog: {
+							"@type": "OfferCatalog",
+							name: "Cerrajería 24 Horas - Urgencias en CABA",
+							itemListElement: schemaServices,
+						},
+						sameAs: [
+							"https://www.google.com/maps/place/?q=place_id:ChIJs1bzAfvLvJURpyZi-Q1Ng2U",
+							"https://www.instagram.com/cerrajeriadc24hs",
+						],
+						aggregateRating: {
+							"@type": "AggregateRating",
+							ratingValue: ratingValue,
+							reviewCount: reviewCount,
+							bestRating: "5",
+							worstRating: "1",
+						},
+						review: schemaReviews,
+					},
 				],
-				geo: {
-					"@type": "GeoCoordinates",
-					latitude: "-34.60976108214114",
-					longitude: "-58.42256222049576",
-				},
-				openingHoursSpecification: {
-					"@type": "OpeningHoursSpecification",
-					dayOfWeek: [
-						"Monday",
-						"Tuesday",
-						"Wednesday",
-						"Thursday",
-						"Friday",
-						"Saturday",
-						"Sunday",
-					],
-					opens: "00:00",
-					closes: "23:59",
-				},
-				priceRange: "$$",
-				address: {
-					"@type": "PostalAddress",
-					streetAddress: "Bartolomé Mitre 3987",
-					addressLocality: "Ciudad Autónoma de Buenos Aires",
-					addressRegion: "CABA",
-					postalCode: "C1201AAW",
-					addressCountry: "AR",
-				},
-				areaServed: [
-					{ "@type": "Place", name: "Almagro" },
-					{ "@type": "Place", name: "Palermo" },
-					{ "@type": "Place", name: "Recoleta" },
-					{ "@type": "Place", name: "Caballito" },
-					{ "@type": "Place", name: "Villa Crespo" },
-					{ "@type": "Place", name: "Balvanera" },
-					{ "@type": "Place", name: "Monserrat" },
-					{ "@type": "Place", name: "San Nicolás" },
-					{ "@type": "Place", name: "Capital Federal" },
-				],
-				hasOfferCatalog: {
-					"@type": "OfferCatalog",
-					name: "Cerrajería 24 Horas - Urgencias en CABA",
-					itemListElement: schemaServices,
-				},
-				sameAs: [
-					"https://www.google.com/maps/place/?q=place_id:ChIJs1bzAfvLvJURpyZi-Q1Ng2U",
-					"https://www.instagram.com/cerrajeriadc24hs",
-				],
-				aggregateRating: {
-					"@type": "AggregateRating",
-					ratingValue: ratingValue,
-					reviewCount: reviewCount,
-					bestRating: "5",
-					worstRating: "1",
-				},
-				review: schemaReviews,
 			})}
 		/>
 	</head>
