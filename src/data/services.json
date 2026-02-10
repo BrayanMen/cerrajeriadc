@@ -1,94 +1,201 @@
 [
-    {
-        "name": "Cerrajeria de Emergencia 24 horas",
-        "description": "Apertura de puertas, cajas fuertes y cerraduras"
-    },
-    {
-        "name": "Cerrajería de Autos",
-        "description": "Apertura de autos y camionetas sin daños"
-    },
-    {
-        "name": "Apertura de Puertas Urgente 24 horas",
-        "description": "Apertura inmediata sin romper."
-    },
-    {
-        "name": "Apertura de Cajas Fuertes",
-        "description": "Servicio técnico especializado en cajas de seguridad."
-    },
-    {
-        "name": "Cambio de Combinaciones",
-        "description": "Cambio de claves y bombines en el acto."
-    },
-    {
-        "name": "Instalación de Cerraduras de Seguridad",
-        "description": "Trabex, Acytra, Kallay y multipunto."
-    },
-    {
-        "name": "Apertura de puertas sin daño",
-        "description": "Abrimos puertas sin romper la cerradura ni dañar la estructura."
-    },
-    {
-        "name": "Cerrajería urgente 24/7",
-        "description": "Servicio de emergencias disponible las 24 horas, todos los días del año."
-    },
-    {
-        "name": "Instalación de Cerraduras Digitales",
-        "description": "Yale,Sansung, Tebee, Phillip y Baling."
-    },
-    {
-        "name": "Reparación de Puertas Blindadas",
-        "description": "Mantenimiento y destrabe de puertas blindadas."
-    },
-    {
-        "name": "Apertura de puertas blindadas",
-        "description": "Abrimos puertas blindadas y de alta seguridad sin daños."
-    },
-    {
-        "name": "Cerrajería para Consorcios",
-        "description": "Mantenimiento de puertas de entrada y frenos hidráulicos."
-    },
-    {
-        "name": "Urgencias Nocturnas",
-        "description": "Atención real las 24 horas en todo CABA."
-    },
-    {
-        "name": "Cambio de combinación de cerraduras",
-        "description": "Actualización de combinaciones sin cambiar la cerradura."
-    },
-    {
-        "name": "Duplicado de llaves a domicilio",
-        "description": "Copias en el acto."
-    },
-    {
-        "name": "Apertura de armarios y muebles",
-        "description": "Acceso a muebles cerrados sin llave en oficinas o casas."
-    },
-    {
-        "name": "Cerrajería para Turistas",
-        "description": "Atención especial a turistas en hoteles o departamentos temporarios."
-    },
-    {
-        "name": "Cerraduras inteligentes",
-        "description": "Instalación y configuración de smart locks."
-    },
-    {
-        "name": "Asistencia en robos o vandalismo",
-        "description": "Reparación urgente tras intentos de robo o rotura."
-    },
-    {
-        "name": "Apertura de puertas de oficinas",
-        "description": "Atención rápida para negocios y empresas."
-    },
-    {
-        "name": "Atención feriados y fines de semana",
-        "description": "Cerrajería disponible todos los días del año."
-    },
-    {
-        "name": "Revisión de seguridad en accesos",
-        "description": "Asesoramiento y revisión general de puntos de entrada al domicilio."
-    },
-    {
-        "name": "Extracción de llaves rotas",
-        "description": "Sacamos llaves partidas dentro del cilindro."
-    }
+  {
+    "slug": "cerrajeria-urgencias-24h",
+    "name": "Cerrajería de urgencia 24 horas",
+    "description": "Atención inmediata para aperturas, destrabes y urgencias en hogares, comercios y oficinas en CABA.",
+    "primaryIntent": "transaccional",
+    "keywords": [
+      "cerrajería urgente",
+      "cerrajero 24 horas",
+      "urgencias nocturnas",
+      "atención feriados",
+      "cerrajería 24/7"
+    ],
+    "aliases": [
+      "Cerrajeria de Emergencia 24 horas",
+      "Cerrajería urgente 24/7",
+      "Urgencias Nocturnas",
+      "Atención feriados y fines de semana"
+    ]
+  },
+  {
+    "slug": "apertura-puertas-sin-danos",
+    "name": "Apertura de puertas sin daños",
+    "description": "Apertura técnica de puertas residenciales, comerciales y de oficina sin romper cerraduras ni marcos.",
+    "primaryIntent": "transaccional",
+    "keywords": [
+      "abrir puerta",
+      "apertura urgente",
+      "puerta trabada",
+      "apertura domicilio"
+    ],
+    "aliases": [
+      "Apertura de Puertas Urgente 24 horas",
+      "Apertura de puertas sin daño",
+      "Apertura de puertas de oficinas"
+    ]
+  },
+  {
+    "slug": "cerrajeria-automotor",
+    "name": "Cerrajería automotor",
+    "description": "Apertura de autos y camionetas, extracción de llaves y asistencia de acceso vehicular sin daños.",
+    "primaryIntent": "transaccional",
+    "keywords": [
+      "cerrajería de autos",
+      "apertura de autos",
+      "llaves adentro del auto",
+      "apertura de camionetas"
+    ],
+    "aliases": [
+      "Cerrajería de Autos",
+      "Apertura de Vehículos"
+    ]
+  },
+  {
+    "slug": "apertura-cajas-fuertes",
+    "name": "Apertura de cajas fuertes",
+    "description": "Servicio técnico para apertura de cajas de seguridad y recuperación de acceso por pérdida de combinación o falla.",
+    "primaryIntent": "transaccional",
+    "keywords": [
+      "caja fuerte bloqueada",
+      "abrir caja de seguridad",
+      "cambio de combinación",
+      "combinación de caja fuerte"
+    ],
+    "aliases": [
+      "Apertura de Cajas Fuertes",
+      "Cambio de Combinaciones",
+      "Cambio de combinación de cerraduras"
+    ]
+  },
+  {
+    "slug": "instalacion-cerraduras-seguridad",
+    "name": "Instalación y cambio de cerraduras de seguridad",
+    "description": "Instalación, reemplazo y refuerzo de cerraduras de alta seguridad para viviendas y comercios.",
+    "primaryIntent": "transaccional",
+    "keywords": [
+      "cambio de cerradura",
+      "cerraduras multipunto",
+      "cerraduras de seguridad",
+      "instalar cerradura"
+    ],
+    "aliases": [
+      "Instalación de Cerraduras de Seguridad"
+    ]
+  },
+  {
+    "slug": "cerraduras-digitales-inteligentes",
+    "name": "Cerraduras digitales e inteligentes",
+    "description": "Instalación y configuración de cerraduras smart para control de accesos, incluyendo marcas como Yale, Samsung y Philips.",
+    "primaryIntent": "transaccional",
+    "keywords": [
+      "cerradura digital",
+      "cerradura inteligente",
+      "smart lock",
+      "control de acceso"
+    ],
+    "aliases": [
+      "Instalación de Cerraduras Digitales",
+      "Cerraduras inteligentes"
+    ]
+  },
+  {
+    "slug": "puertas-blindadas-servicio-tecnico",
+    "name": "Servicio técnico de puertas blindadas",
+    "description": "Apertura, reparación y mantenimiento de puertas blindadas y de alta seguridad.",
+    "primaryIntent": "transaccional",
+    "keywords": [
+      "puerta blindada trabada",
+      "reparación puerta blindada",
+      "apertura puerta blindada"
+    ],
+    "aliases": [
+      "Reparación de Puertas Blindadas",
+      "Apertura de puertas blindadas"
+    ]
+  },
+  {
+    "slug": "cerrajeria-consorcios-comercios",
+    "name": "Cerrajería para consorcios y comercios",
+    "description": "Mantenimiento preventivo y correctivo de accesos comunes, puertas de entrada y sistemas hidráulicos.",
+    "primaryIntent": "transaccional",
+    "keywords": [
+      "cerrajería para consorcios",
+      "cerrajería comercial",
+      "mantenimiento de accesos"
+    ],
+    "aliases": [
+      "Cerrajería para Consorcios"
+    ]
+  },
+  {
+    "slug": "duplicado-llaves-extraccion",
+    "name": "Duplicado de llaves y extracción de llaves rotas",
+    "description": "Copias de llaves a domicilio y extracción profesional de llaves partidas dentro del cilindro.",
+    "primaryIntent": "transaccional",
+    "keywords": [
+      "duplicado de llaves",
+      "copia de llaves",
+      "llave rota",
+      "extraer llave partida"
+    ],
+    "aliases": [
+      "Duplicado de llaves a domicilio",
+      "Extracción de llaves rotas"
+    ]
+  },
+  {
+    "slug": "asistencia-post-robo",
+    "name": "Asistencia post robo o vandalismo",
+    "description": "Respuesta prioritaria para asegurar accesos y recuperar la seguridad luego de intentos de intrusión o daños.",
+    "primaryIntent": "local",
+    "keywords": [
+      "cerrajero post robo",
+      "asegurar puerta forzada",
+      "cambio urgente de cerradura"
+    ],
+    "aliases": [
+      "Asistencia en robos o vandalismo"
+    ]
+  },
+  {
+    "slug": "apertura-muebles-archivos",
+    "name": "Apertura de muebles y archivos",
+    "description": "Apertura de armarios, muebles y archivadores sin llave en hogares y oficinas.",
+    "primaryIntent": "transaccional",
+    "keywords": [
+      "apertura de armarios",
+      "abrir mueble sin llave",
+      "apertura de archivadores"
+    ],
+    "aliases": [
+      "Apertura de armarios y muebles"
+    ]
+  },
+  {
+    "slug": "auditoria-seguridad-accesos",
+    "name": "Revisión de seguridad en accesos",
+    "description": "Diagnóstico de vulnerabilidades y recomendaciones para mejorar la seguridad de puertas y cerraduras.",
+    "primaryIntent": "informativa",
+    "keywords": [
+      "auditoría de seguridad",
+      "asesoramiento en cerraduras",
+      "revisión de accesos"
+    ],
+    "aliases": []
+  },
+  {
+    "slug": "cerrajeria-para-turistas-caba",
+    "name": "Cerrajería para turistas en CABA",
+    "description": "Asistencia rápida para huéspedes y alquileres temporarios en hoteles y departamentos de Capital Federal.",
+    "primaryIntent": "local",
+    "keywords": [
+      "cerrajero para turistas",
+      "cerrajería en hoteles",
+      "alquiler temporario"
+    ],
+    "aliases": [
+      "Cerrajería para Turistas"
+    ]
+  }
 ]
