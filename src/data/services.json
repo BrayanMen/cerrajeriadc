@@ -157,45 +157,5 @@
     "aliases": [
       "Asistencia en robos o vandalismo"
     ]
-  },
-  {
-    "slug": "apertura-muebles-archivos",
-    "name": "Apertura de muebles y archivos",
-    "description": "Apertura de armarios, muebles y archivadores sin llave en hogares y oficinas.",
-    "primaryIntent": "transaccional",
-    "keywords": [
-      "apertura de armarios",
-      "abrir mueble sin llave",
-      "apertura de archivadores"
-    ],
-    "aliases": [
-      "Apertura de armarios y muebles"
-    ]
-  },
-  {
-    "slug": "auditoria-seguridad-accesos",
-    "name": "Revisión de seguridad en accesos",
-    "description": "Diagnóstico de vulnerabilidades y recomendaciones para mejorar la seguridad de puertas y cerraduras.",
-    "primaryIntent": "informativa",
-    "keywords": [
-      "auditoría de seguridad",
-      "asesoramiento en cerraduras",
-      "revisión de accesos"
-    ],
-    "aliases": []
-  },
-  {
-    "slug": "cerrajeria-para-turistas-caba",
-    "name": "Cerrajería para turistas en CABA",
-    "description": "Asistencia rápida para huéspedes y alquileres temporarios en hoteles y departamentos de Capital Federal.",
-    "primaryIntent": "local",
-    "keywords": [
-      "cerrajero para turistas",
-      "cerrajería en hoteles",
-      "alquiler temporario"
-    ],
-    "aliases": [
-      "Cerrajería para Turistas"
-    ]
   }
 ]

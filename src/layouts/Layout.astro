@@ -88,11 +88,9 @@ const schemaReviews = reviewsData.map((r) => {
 const schemaServices = servicesData.map((service) => ({
 	"@type": "Offer",
 	itemOffered: {
-		"@type": "Service",
-		"@id": `https://cerrajeriadc.com.ar/servicios/${service.slug}#service`,
+		"@type": "Service",		
 		name: service.name,
-		description: service.description,
-		url: `https://cerrajeriadc.com.ar/servicios/${service.slug}`,
+		description: service.description,		
 		alternateName: [...service.aliases, ...service.keywords],
 		category: service.primaryIntent,
 	},
