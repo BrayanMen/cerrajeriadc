@@ -30,17 +30,60 @@ const normalizedImage = image.startsWith("http")
 
 const ratingValue = 5;
 const reviewCount = reviewsData.length;
-const schemaReviews = reviewsData.map((r) => ({
-	"@type": "Review",
-	author: { "@type": "Person", name: r.name },
-	reviewBody: r.review,
-	reviewRating: {
-		"@type": "Rating",
-		ratingValue: r.stars,
-		bestRating: ratingValue,
+const reviewSourcePublishers = {
+	google: {
+		"@type": "Organization",
+		name: "Google",
+		url: "https://www.google.com/",
 	},
-	// "datePublished":r.date,
-}));
+	instagram: {
+		"@type": "Organization",
+		name: "Instagram",
+		url: "https://www.instagram.com/",
+	},
+	whatsapp: {
+		"@type": "Organization",
+		name: "WhatsApp",
+		url: "https://www.whatsapp.com/",
+	},
+};
+
+const schemaReviews = reviewsData.map((r) => {
+	const review = {
+		"@type": "Review",
+		identifier: r.id,
+		author: { "@type": r.authorType, name: r.name },
+		reviewBody: r.review,
+		datePublished: r.datePublished,
+		reviewRating: {
+			"@type": "Rating",
+			ratingValue: r.stars,
+			bestRating: ratingValue,
+		},
+		itemReviewed: {
+			"@type": "Service",
+			name: r.serviceType,
+			areaServed: {
+				"@type": "Place",
+				name: r.location,
+			},
+		},
+	};
+
+	if (r.sourceUrl) {
+		review.isPartOf = {
+			"@type": "WebPage",
+			name: `Reseña en ${r.source}`,
+			url: r.sourceUrl,
+		};
+	}
+
+	if (reviewSourcePublishers[r.source]) {
+		review.publisher = reviewSourcePublishers[r.source];
+	}
+
+	return review;
+});
 
 const schemaServices = servicesData.map((service) => ({
 	"@type": "Offer",

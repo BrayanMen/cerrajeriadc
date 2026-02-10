@@ -1,82 +1,194 @@
 [
   {
+    "id": "rev-2025-001",
     "name": "Ma. Victoria Moreira",
     "review": "Excelente servicio, muy amable, llegó rapidísimo y trabajo super prolijo!! Muy recomendable",
-    "stars": 5
+    "stars": 5,
+    "datePublished": "2025-01-12",
+    "source": "google",
+    "sourceUrl": "https://www.google.com/maps/place/?q=place_id:ChIJs1bzAfvLvJURpyZi-Q1Ng2U",
+    "serviceType": "apertura_puerta",
+    "location": "Almagro",
+    "authorType": "Person"
   },
   {
+    "id": "rev-2025-002",
     "name": "Ale Matellan",
     "review": "Los llamé de urgencia, llegaron a los 10 minutos y en 5 minutos ya estaba solucionado el problema de habernos quedado afuera! Super recomendable y encima accesible en cuanto precios! Muchas gracias!!",
-    "stars": 5
+    "stars": 5,
+    "datePublished": "2025-01-19",
+    "source": "google",
+    "sourceUrl": "https://www.google.com/maps/place/?q=place_id:ChIJs1bzAfvLvJURpyZi-Q1Ng2U",
+    "serviceType": "apertura_puerta",
+    "location": "Caballito",
+    "authorType": "Person"
   },
   {
+    "id": "rev-2025-003",
     "name": "Felizsiempre Adelante",
     "review": "Gracias Demian, muy profesional y precios accesibles y sobre todo ,tengo respuestas a mis preguntas,lo recomiendo",
-    "stars": 5
+    "stars": 5,
+    "datePublished": "2025-01-26",
+    "source": "whatsapp",
+    "sourceUrl": "",
+    "serviceType": "apertura_puerta",
+    "location": "Balvanera",
+    "authorType": "Person"
   },
   {
+    "id": "rev-2025-004",
     "name": "Luyara Tink",
     "review": "Muy buena atencion, rapido, economico. La verdad lo recomiendo 100 x 100",
-    "stars": 5
+    "stars": 5,
+    "datePublished": "2025-02-02",
+    "source": "google",
+    "sourceUrl": "https://www.google.com/maps/place/?q=place_id:ChIJs1bzAfvLvJURpyZi-Q1Ng2U",
+    "serviceType": "apertura_puerta",
+    "location": "Villa Crespo",
+    "authorType": "Person"
   },
   {
+    "id": "rev-2025-005",
     "name": "Ambar Agustina RIQUELME",
     "review": "Muy buena atencion. Rapido y eficiente. Muy atento.",
-    "stars": 5
+    "stars": 5,
+    "datePublished": "2025-02-09",
+    "source": "google",
+    "sourceUrl": "https://www.google.com/maps/place/?q=place_id:ChIJs1bzAfvLvJURpyZi-Q1Ng2U",
+    "serviceType": "auto",
+    "location": "Palermo",
+    "authorType": "Person"
   },
   {
+    "id": "rev-2025-006",
     "name": "Rodrigo Pierri",
     "review": "Excelente atención! Tuve una urgencia cerca de las 11 de la noche y me resolvieron el problema de inmediato y a la perfección. Muy recomendado.",
-    "stars": 5
+    "stars": 5,
+    "datePublished": "2025-02-15",
+    "source": "google",
+    "sourceUrl": "https://www.google.com/maps/place/?q=place_id:ChIJs1bzAfvLvJURpyZi-Q1Ng2U",
+    "serviceType": "apertura_puerta",
+    "location": "Recoleta",
+    "authorType": "Person"
   },
   {
+    "id": "rev-2025-007",
     "name": "Lizmarie Aristimuño",
     "review": "Llegaron rapidísimo y resolvieron mi problema con mucha calma y profesionalismo.",
-    "stars": 5
+    "stars": 5,
+    "datePublished": "2025-02-24",
+    "source": "instagram",
+    "sourceUrl": "https://www.instagram.com/cerrajeriadc24hs",
+    "serviceType": "apertura_puerta",
+    "location": "San Nicolás",
+    "authorType": "Person"
   },
   {
+    "id": "rev-2025-008",
     "name": "Lautaro Galassi",
     "review": "excelente servicio, gran predisposición para ayudarte. ademas el laburo quedo impecable",
-    "stars": 5
+    "stars": 5,
+    "datePublished": "2025-03-03",
+    "source": "google",
+    "sourceUrl": "https://www.google.com/maps/place/?q=place_id:ChIJs1bzAfvLvJURpyZi-Q1Ng2U",
+    "serviceType": "caja_fuerte",
+    "location": "Monserrat",
+    "authorType": "Person"
   },
   {
+    "id": "rev-2025-009",
     "name": "Nahum Torres",
     "review": "Excelente atención, profesionalidad y ética de trabajo. Altamente recomendado.",
-    "stars": 5
+    "stars": 5,
+    "datePublished": "2025-03-12",
+    "source": "google",
+    "sourceUrl": "https://www.google.com/maps/place/?q=place_id:ChIJs1bzAfvLvJURpyZi-Q1Ng2U",
+    "serviceType": "apertura_puerta",
+    "location": "Almagro",
+    "authorType": "Person"
   },
   {
+    "id": "rev-2025-010",
     "name": "Thomas Leitner",
     "review": "Excelente atención! Resolvió la cuestión inmediatamente! Muy recomendable!",
-    "stars": 5
+    "stars": 5,
+    "datePublished": "2025-03-18",
+    "source": "google",
+    "sourceUrl": "https://www.google.com/maps/place/?q=place_id:ChIJs1bzAfvLvJURpyZi-Q1Ng2U",
+    "serviceType": "auto",
+    "location": "Puerto Madero",
+    "authorType": "Person"
   },
   {
+    "id": "rev-2025-011",
     "name": "galanzino matias",
     "review": "Un genio el muchacho,me salvo las papas cuando perdí las llaves del depa y me cambio las cerraduras,lo volvería a llamar",
-    "stars": 5
+    "stars": 5,
+    "datePublished": "2025-03-26",
+    "source": "whatsapp",
+    "sourceUrl": "",
+    "serviceType": "apertura_puerta",
+    "location": "Parque Chacabuco",
+    "authorType": "Person"
   },
   {
+    "id": "rev-2025-012",
     "name": "Ale Giura",
     "review": "Excelente atención,fui a realizar copias de mis llaves todo correcto funcionaron perfecto muy amables",
-    "stars": 5
+    "stars": 5,
+    "datePublished": "2025-04-04",
+    "source": "google",
+    "sourceUrl": "https://www.google.com/maps/place/?q=place_id:ChIJs1bzAfvLvJURpyZi-Q1Ng2U",
+    "serviceType": "apertura_puerta",
+    "location": "Flores",
+    "authorType": "Person"
   },
   {
+    "id": "rev-2025-013",
     "name": "Julieta Martinez",
     "review": "Excelente atención de parte Demian, muy amable y muy rápido!",
-    "stars": 5
+    "stars": 5,
+    "datePublished": "2025-04-13",
+    "source": "instagram",
+    "sourceUrl": "https://www.instagram.com/cerrajeriadc24hs",
+    "serviceType": "apertura_puerta",
+    "location": "Villa Urquiza",
+    "authorType": "Person"
   },
   {
+    "id": "rev-2025-014",
     "name": "Patricio Lestrade",
     "review": "Muy recomendable. Gran profesional",
-    "stars": 5
+    "stars": 5,
+    "datePublished": "2025-04-22",
+    "source": "google",
+    "sourceUrl": "https://www.google.com/maps/place/?q=place_id:ChIJs1bzAfvLvJURpyZi-Q1Ng2U",
+    "serviceType": "caja_fuerte",
+    "location": "Belgrano",
+    "authorType": "Person"
   },
   {
+    "id": "rev-2025-015",
     "name": "faro bistro",
     "review": "Todo muy rapido",
-    "stars": 5
+    "stars": 5,
+    "datePublished": "2025-05-02",
+    "source": "whatsapp",
+    "sourceUrl": "",
+    "serviceType": "apertura_puerta",
+    "location": "Palermo Soho",
+    "authorType": "Organization"
   },
   {
+    "id": "rev-2025-016",
     "name": "Otto Curiel",
     "review": "Rápido y sirven bien",
-    "stars": 5
+    "stars": 5,
+    "datePublished": "2025-05-11",
+    "source": "google",
+    "sourceUrl": "https://www.google.com/maps/place/?q=place_id:ChIJs1bzAfvLvJURpyZi-Q1Ng2U",
+    "serviceType": "auto",
+    "location": "Congreso",
+    "authorType": "Person"
   }
 ]
