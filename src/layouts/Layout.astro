@@ -200,8 +200,21 @@ const schemaServices = servicesData.map((service) => ({
 						inLanguage: "es-AR",
 					},
 					{
+						"@type": "Person",
+						"@id": "https://cerrajeriadc.com.ar/#owner",
+						name: "Demian Cohen",
+						jobTitle: "Cerrajero Profesional",
+						url: "https://cerrajeriadc.com.ar/"
+					},
+					{
 						"@type": "Locksmith",
 						"@id": "https://cerrajeriadc.com.ar/#locksmith",
+						brand: {
+							"@id": "https://cerrajeriadc.com.ar/#website",
+						},
+						founder: {
+							"@id": "https://cerrajeriadc.com.ar/#owner",
+						},
 						name: "Cerrajería DC",
 						url: "https://cerrajeriadc.com.ar/",
 						image: "https://cerrajeriadc.com.ar/logo.png",
