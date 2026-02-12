@@ -88,9 +88,9 @@ const schemaReviews = reviewsData.map((r) => {
 const schemaServices = servicesData.map((service) => ({
 	"@type": "Offer",
 	itemOffered: {
-		"@type": "Service",		
+		"@type": "Service",
 		name: service.name,
-		description: service.description,		
+		description: service.description,
 		alternateName: [...service.aliases, ...service.keywords],
 		category: service.primaryIntent,
 	},
@@ -162,7 +162,10 @@ const schemaServices = servicesData.map((service) => ({
 		<meta property="og:locale" content="es_AR" />
 		<meta property="og:url" content={canonicalURL} />
 		<meta property="og:image" content={normalizedImage} />
-		<meta property="og:image:alt" content="Cerrajería DC - Servicio de urgencias 24 horas" />
+		<meta
+			property="og:image:alt"
+			content="Cerrajería DC - Servicio de urgencias 24 horas"
+		/>
 		<meta property="og:site_name" content="Cerrajería DC" />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={title} />
@@ -191,18 +194,19 @@ const schemaServices = servicesData.map((service) => ({
 						url: canonicalURL,
 						name: title,
 						description,
-						isPartOf: { "@id": "https://cerrajeriadc.com.ar/#website" },
+						isPartOf: {
+							"@id": "https://cerrajeriadc.com.ar/#website",
+						},
 						inLanguage: "es-AR",
 					},
 					{
 						"@type": "Locksmith",
 						"@id": "https://cerrajeriadc.com.ar/#locksmith",
-						serviceType:
-							"Cerrajería 24 horas de urgencia en Capital Federal (CABA)",
 						name: "Cerrajería DC",
 						url: "https://cerrajeriadc.com.ar/",
 						image: "https://cerrajeriadc.com.ar/logo.png",
 						telephone: "+5491170029897",
+						hasMap: "https://www.google.com/maps/place/?q=place_id:ChIJs1bzAfvLvJURpyZi-Q1Ng2U",
 						description:
 							"Servicio de cerrajería profesional 24 horas en Buenos Aires, especializado en urgencias, aperturas y seguridad para hogares, autos y comercios.",
 						knowsAbout: [
