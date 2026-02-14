@@ -102,7 +102,7 @@ const schemaServices = servicesData.map((service) => ({
 	<head>
 		<meta charset="UTF-8" />
 		<!-- Google Tag Manager -->
-		<script type="text/partytown">
+		<script is:inline>
 			(function (w, d, s, l, i) {
 				w[l] = w[l] || [];
 				w[l].push({
@@ -119,13 +119,12 @@ const schemaServices = servicesData.map((service) => ({
 		</script>
 		<!-- End Google Tag Manager -->
 		<!-- Google tag (gtag.js) -->
-		<script
-			type="text/partytown"
+		<script			
 			async
 			src="https://www.googletagmanager.com/gtag/js?id=G-7QJJ3S16JK"
 		></script>
 
-		<script type="text/partytown">
+		<script is:inline>
 			window.dataLayer = window.dataLayer || [];
 			function gtag() {
 				dataLayer.push(arguments);
