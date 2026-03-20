@@ -13,6 +13,15 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
+  server: {
+    headers: {
+      "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+      "X-Frame-Options": "SAMEORIGIN",
+      "X-Content-Type-Options": "nosniff",
+      "Cross-Origin-Opener-Policy": "same-origin",
+      "Referrer-Policy": "strict-origin-when-cross-origin"
+    }
+  },
 
   integrations: [
     sitemap(),

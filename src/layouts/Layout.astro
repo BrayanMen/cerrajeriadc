@@ -142,6 +142,10 @@ const schemaServices = servicesData.map((service) => ({
 		<link rel="canonical" href={canonicalURL} />
 		<meta name="robots" content="index, follow, max-image-preview:large" />
 		<meta name="author" content="Cerrajeria DC" />
+		
+		<!-- Políticas de Seguridad (CSP) para Lighthouse 100/100 -->
+		<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://*.google-analytics.com; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; frame-src 'self' https://www.googletagmanager.com; worker-src 'self' blob:;" />
+
 		<meta name="geo.region" content="AR-C" />
 		<meta name="geo.placename" content="Buenos Aires" />
 		<meta name="geo.position" content="-34.609761;-58.422562" />
