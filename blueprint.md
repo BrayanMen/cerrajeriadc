@@ -1,36 +1,23 @@
-
 # Blueprint: Cerrajería Web App
 
 ## Propósito y Capacidades
-
-Esta es una aplicación web de una página, de carga estática, para un servicio de cerrajería ficticio llamado "Cerrajería Ya". Está construida con Astro.js y optimizada para SEO y rendimiento.
-
-La aplicación muestra los servicios de la empresa, genera confianza a través de testimonios y facilita el contacto a través de un llamado a la acción (CTA) claro.
+Esta es una aplicación web de una página, de carga estática, para el servicio de cerrajería "Cerrajería DC". Está construida con Astro.js y optimizada para SEO y rendimiento. La aplicación muestra los servicios, testimonios y facilita el contacto a través de un llamado a la acción (CTA) claro.
 
 ## Esquema del Proyecto
-
-- **Framework**: Astro.js
-- **Estilo**: Tailwind CSS, CSS global (`src/styles/global.css`)
-- **Componentes**: Componentes Astro para UI estática (`.astro`)
-- **Enrutamiento**: Enrutamiento basado en archivos en `src/pages/`
-- **SEO**:
-    - Título y descripción dinámicos desde `Layout.astro`.
-    - URLs canónicas.
+- **Framework**: Astro.js 5.16
+- **Estilo**: Tailwind CSS V4, CSS global (`src/styles/global.css`)
+- **Componentes**: UI estática y componentes core (`.astro`)
+- **Enrutamiento**: Basado en archivos en `src/pages/`
+- **SEO Actual**:
+    - Títulos, descripciones y URLs dinámicas desde `Layout.astro`.
     - Metaetiquetas Open Graph y Twitter Card.
-    - Rich snippets con Schema.org JSON-LD para el tipo de negocio "Locksmith".
-    - Integración con Google Tag Manager y Google Analytics.
-- **Rendimiento**:
-    - Pre-conexión y pre-búsqueda de DNS para orígenes críticos.
-    - Carga diferida (lazy loading) de animaciones.
+    - Schema.org JSON-LD para el tipo de negocio "Locksmith", integrando reseñas y catálogo de servicios.
+    - GTM y Analytics vía Partytown.
 
-## Plan de Cambios Actual
-
-- **Objetivo**: Mejorar el ranking en Google optimizando la sección `<head>`.
-- **Inspiración**: Un sitio web de la competencia con un fuerte SEO.
-- **Cambios Realizados**:
-    1. **Se actualizó `src/layouts/Layout.astro`**:
-        - Se cambió el `title` y la `description` por defecto para que coincidan con las palabras clave de la competencia: "Cerrajería 24 horas en Capital Federal | Servicio Urgente" y "¿Buscás cerrajería 24 hs en Capital Federal? Atención urgente y profesional para apertura de puertas, autos y cajas fuertes. ¡Llamanos ya!".
-        - Se añadió un conjunto completo de metaetiquetas Open Graph para mejorar el intercambio en redes sociales (`og:type`, `og:locale`, `og:site_name`, `article:modified_time`, `og:image:width`, `og:image:height`, `og:image:type`).
-        - Se añadieron metaetiquetas Twitter Card (`twitter:card`, `twitter:title`, `twitter:description`, `twitter:image`).
-        - Se mejoró el script JSON-LD de `Schema.org` para el tipo de negocio `Locksmith` con información más específica y relevante (nombre, imagen, URL, dirección, coordenadas geográficas) basada en el ejemplo de la competencia.
-        - Se actualizó el autor a "Cerrajeria Ya".
+## Plan de Optimización Actual (SEO On-Page, Lighthouse 100/100, Google Ads)
+- **Objetivo**: Dominar CABA y áreas locales, optimizando presupuestos diurnos/nocturnos en Ads y alcanzando el 100/100 en Lighthouse.
+- **Acciones Planeadas (Requieren Aprobación)**:
+    1. **Auditoría Semántica y Multimedia**: Asegurar etiquetas alt, atributos `width`/`height` y loading policies (Eager/Lazy) en todas las imágenes. Reestructuración de Headers (H1, H2, H3).
+    2. **Mejora de Accesibilidad**: ARIA labels y contrastes donde aplique para un score de 100.
+    3. **Enriquecimiento de Schema JSON-LD**: Agregar schema.org de tipo `FAQPage` usando las preguntas actuales.
+    4. **Estrategia Ads (Guía provista)**: Creación de guía para dividir campañas: Día (Cercanía local 2-3km, búsquedas amplias), Noche (Urgencias en todo CABA, "Cerrajero 24 hrs", pujas más altas).
