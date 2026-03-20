@@ -30,7 +30,7 @@ const normalizedImage = image.startsWith("http")
 
 const ratingValue = 5;
 const reviewCount = reviewsData.length;
-const reviewSourcePublishers = {
+const reviewSourcePublishers: Record<string, any> = {
 	google: {
 		"@type": "Organization",
 		name: "Google",
@@ -49,7 +49,7 @@ const reviewSourcePublishers = {
 };
 
 const schemaReviews = reviewsData.map((r) => {
-	const review = {
+	const review: any = {
 		"@type": "Review",
 		identifier: r.id,
 		author: { "@type": r.authorType, name: r.name },
@@ -133,6 +133,7 @@ const schemaServices = servicesData.map((service) => ({
 			gtag("js", new Date());
 
 			gtag("config", "G-7QJJ3S16JK");
+			gtag("config", "AW-17940596313");
 		</script>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
