@@ -8,16 +8,20 @@ Esta es una aplicación web de una página, de carga estática, para el servicio
 - **Estilo**: Tailwind CSS V4, CSS global (`src/styles/global.css`)
 - **Componentes**: UI estática y componentes core (`.astro`)
 - **Enrutamiento**: Basado en archivos en `src/pages/`
+- **Paleta de Colores (Actualizada Abr 2026)**:
+    - **Negro base** `#050505` (`oklch(0.06 0 0)`) — Fondo principal, cards, branding
+    - **Turquesa marca** `#20D6D2` (`oklch(0.79 0.13 182)`) — Títulos, botones, acentos
+    - **Blanco apoyo** `#FFFFFF` (`oklch(0.98 0 0)`) — Texto, contraste, legibilidad
 - **SEO Actual**:
     - Títulos, descripciones y URLs dinámicas desde `Layout.astro`.
     - Metaetiquetas Open Graph y Twitter Card.
     - Schema.org JSON-LD para el tipo de negocio "Locksmith", integrando reseñas y catálogo de servicios.
     - GTM y Analytics vía Partytown.
+    - FAQPage Schema para preguntas frecuentes.
 
-## Plan de Optimización Actual (SEO On-Page, Lighthouse 100/100, Google Ads)
-- **Objetivo**: Dominar CABA y áreas locales, optimizando presupuestos diurnos/nocturnos en Ads y alcanzando el 100/100 en Lighthouse.
-- **Acciones Planeadas (Requieren Aprobación)**:
-    1. **Auditoría Semántica y Multimedia**: Asegurar etiquetas alt, atributos `width`/`height` y loading policies (Eager/Lazy) en todas las imágenes. Reestructuración de Headers (H1, H2, H3).
-    2. **Mejora de Accesibilidad**: ARIA labels y contrastes donde aplique para un score de 100.
-    3. **Enriquecimiento de Schema JSON-LD**: Agregar schema.org de tipo `FAQPage` usando las preguntas actuales.
-    4. **Estrategia Ads (Guía provista)**: Creación de guía para dividir campañas: Día (Cercanía local 2-3km, búsquedas amplias), Noche (Urgencias en todo CABA, "Cerrajero 24 hrs", pujas más altas).
+## Historial de Cambios
+### Rebranding de Colores (Abr 2026)
+- Migración completa de paleta dorado/ámbar (`oklch hue 85`) a turquesa/negro/blanco.
+- Archivos modificados: `global.css`, `HeroSection.astro`, `ResidentialSection.astro`, `Layout.astro`.
+- Variables CSS centralizadas permiten que todos los componentes hereden automáticamente.
+- Contrastes verificados: turquesa/negro 10.7:1 (AAA), blanco/negro 20:1 (AAA).
