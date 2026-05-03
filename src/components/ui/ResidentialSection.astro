@@ -69,7 +69,12 @@ const residentialServices = [
   
           <div class="animate-on-scroll mt-10" style="animation-delay: 0.4s;">
             <a
-              href="tel:+5491170029897"
+              href="tel:+5491170029897" 
+              onclick="window.dataLayer = window.dataLayer || []; window.dataLayer.push({
+    'event': 'generacion_lead',
+    'lead_type': 'telefono',
+    'value': 1000
+  });"
               aria-label="Consultar Servicio Residencial por Teléfono"
               class="w-full sm:w-auto flex items-center justify-center gap-3 bg-primary text-black px-6 py-4 rounded-xl font-bold hover:scale-[1.02] transition-transform duration-200 ease-in-out"
             >

@@ -151,7 +151,12 @@ const services = [
             </ul>
     
             <a
-              href="tel:+5491170029897"
+              href="tel:+5491170029897" 
+              onclick="window.dataLayer = window.dataLayer || []; window.dataLayer.push({
+    'event': 'generacion_lead',
+    'lead_type': 'telefono',
+    'value': 1000
+  });"
               class="inline-flex items-center font-semibold text-primary hover:text-primary/90 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
               aria-label={`Llamar para consultar sobre ${service.title}`}
             >
@@ -170,6 +175,7 @@ const services = [
           ¿No encontrás tu servicio? Consultanos sin compromiso
         </p>
         <a href="tel:+5491170029897" 
+        
         onclick="window.dataLayer = window.dataLayer || []; window.dataLayer.push({
     'event': 'generacion_lead',
     'lead_type': 'telefono',
