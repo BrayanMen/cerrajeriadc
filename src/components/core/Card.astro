@@ -1,0 +1,76 @@
+---
+import { Image } from "astro:assets";
+import ServiceIcon from "./ServiceIcon.astro";
+import Button from "./Button.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  image: ImageMetadata;
+  imageAlt: string;
+  features: string[];
+  icon: string;
+  ctaText?: string;
+  ctaHref?: string;
+  ctaOnclick?: string;
+  class?: string;
+}
+
+const {
+  title,
+  description,
+  image,
+  imageAlt,
+  features,
+  icon,
+  ctaText = "Consultar ahora",
+  ctaHref = "tel:+5491170029897",
+  ctaOnclick = "window.dataLayer = window.dataLayer || []; window.dataLayer.push({'event': 'generacion_lead', 'lead_type': 'telefono', 'value': 1000});",
+  class: className = "",
+} = Astro.props;
+---
+
+<li
+  class={`relative group h-100 overflow-hidden rounded-2xl glass-card transition-all hover:-translate-y-1 hover:border-primary/50 ${className}`}
+>
+  <Image
+    src={image}
+    alt={imageAlt}
+    width={400}
+    height={400}
+    format="webp"
+    quality={80}
+    loading="lazy"
+    class="absolute inset-0 w-full h-full object-cover z-0"
+  />
+  
+  <div class="absolute inset-0 bg-black/70 backdrop-blur-[2px] z-0"></div>
+  
+  <div class="relative z-10 p-6 text-white">
+    <div class="w-12 h-12 bg-primary/80 rounded-xl flex items-center justify-center mb-4">
+      <ServiceIcon name={icon} />
+    </div>
+    
+    <div class="absolute top-4 right-4 opacity-10 group-hover:opacity-20 transition-opacity">
+      <ServiceIcon name={icon} size={72} />
+    </div>
+
+    <h3 class="text-xl font-bold mb-3">{title}</h3>
+    
+    <p class="text-sm mb-4 leading-relaxed text-white/90">{description}</p>
+    
+    <ul class="space-y-2 mb-6" aria-label={`Características de ${title}`}>
+      {features.map((feature) => (
+        <li class="flex items-center gap-2 text-sm">
+          <span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+          {feature}
+        </li>
+      ))}
+    </ul>
+
+    <Button href={ctaHref} onclick={ctaOnclick}>
+      {ctaText}
+      <span class="ml-2 transition-transform group-hover:translate-x-1">→</span>
+    </Button>
+  </div>
+</li>

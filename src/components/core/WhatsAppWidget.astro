@@ -1,0 +1,132 @@
+---
+interface Props {
+  phone?: string;
+  defaultMessage?: string;
+  class?: string;
+}
+
+const {
+  phone = "+5491170029897",
+  defaultMessage = "Hola, necesito un cerrajero urgente",
+  class: className = "",
+} = Astro.props;
+
+const encodedMessage = encodeURIComponent(defaultMessage);
+const waLink = `https://wa.me/${phone.replace("+", "")}?text=${encodedMessage}`;
+---
+
+<div
+  id="whatsapp-widget"
+  class={`fixed bottom-6 right-6 z-9999 flex flex-col items-end gap-3 ${className}`}
+>
+  <!-- Chat Window -->
+  <div
+    id="wa-chat-window"
+    class="hidden flex-col w-80 max-w-[calc(100vw-5rem)] bg-card border border-border rounded-2xl shadow-xl overflow-hidden"
+    role="dialog"
+    aria-label="Chat de WhatsApp"
+  >
+    <!-- Header -->
+    <div class="bg-primary p-4 flex items-center gap-3">
+      <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"></path>
+        </svg>
+      </div>
+      <div class="text-black">
+        <p class="font-semibold text-sm">Cerrajería DC</p>
+        <p class="text-xs opacity-80"> respuestas en minutos</p>
+      </div>
+      <button
+        id="wa-close"
+        class="ml-auto text-black/70 hover:text-black"
+        aria-label="Cerrar chat"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Message Preview -->
+    <div class="p-4 bg-background/50">
+      <p class="text-sm text-muted-foreground">
+        Hola 👋 Escribinos y te respondemos al instante
+      </p>
+    </div>
+
+    <!-- Input -->
+    <div class="p-3 border-t border-border">
+      <a
+        href={waLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        onclick="window.dataLayer = window.dataLayer || []; window.dataLayer.push({'event': 'generacion_lead', 'lead_type': 'whatsapp', 'value': 1000});"
+        class="flex items-center gap-2 w-full p-3 bg-card border border-border rounded-lg text-muted-foreground hover:text-foreground hover:border-primary/50 transition-colors text-sm"
+      >
+        <span>Escribí tu mensaje...</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-auto rotate-90 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Launcher Button -->
+  <a
+    id="wa-toggle"
+    href={waLink}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Abrir chat de WhatsApp"
+    class="w-16 h-16 rounded-full bg-green-500 text-white shadow-lg hover:bg-green-600 flex items-center justify-center transition-all animate-pulse-glow"
+    onclick="window.dataLayer = window.dataLayer || []; window.dataLayer.push({'event': 'generacion_lead', 'lead_type': 'whatsapp', 'value': 1000});"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
+      <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"></path>
+    </svg>
+  </a>
+</div>
+
+<script>
+  const widget = document.getElementById("whatsapp-widget");
+  const toggle = document.getElementById("wa-toggle");
+  const chatWindow = document.getElementById("wa-chat-window");
+  const closeBtn = document.getElementById("wa-close");
+
+  if (toggle && chatWindow) {
+    toggle.addEventListener("click", (e) => {
+      const isMobile = window.innerWidth < 640;
+      if (isMobile) {
+        chatWindow.classList.add("hidden");
+      } else {
+        e.preventDefault();
+        chatWindow.classList.toggle("hidden");
+        
+        if (!chatWindow.classList.contains("hidden")) {
+          chatWindow.classList.remove("flex");
+          chatWindow.classList.add("flex");
+        }
+      }
+    });
+  }
+
+  if (closeBtn && chatWindow) {
+    closeBtn.addEventListener("click", () => {
+      chatWindow.classList.add("hidden");
+    });
+  }
+
+  if (widget) {
+    let lastScrollY = 0;
+    window.addEventListener("scroll", () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > 200 && currentScrollY > lastScrollY) {
+        widget.classList.add("translate-y-2", "opacity-50");
+      } else {
+        widget.classList.remove("translate-y-2", "opacity-50");
+      }
+      lastScrollY = currentScrollY;
+    });
+  }
+</script>

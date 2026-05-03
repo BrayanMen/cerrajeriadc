@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/ui/Navigation.astro';
+import FloatingCTA from '../components/core/FloatingCTA.astro';
+import Footer from '../components/ui/Footer.astro';
+import Button from '../components/core/Button.astro';
+---
+
+<Layout title="Página no encontrada - Cerrajería DC">
+  <Navigation />
+  
+  <main class="min-h-screen flex items-center justify-center">
+    <div class="text-center px-4 py-20">
+      <span class="text-primary text-9xl font-bold block mb-4">404</span>
+      
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">
+        Página no encontrada
+      </h1>
+      
+      <p class="text-muted-foreground text-lg mb-8 max-w-md mx-auto">
+        Lo sentimos, la página que buscas no existe o ha sido movida.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <Button href="/" variant="primary" size="lg">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+          </svg>
+          Volver al inicio
+        </Button>
+        
+        <Button href="tel:+5491170029897" variant="secondary" size="lg">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.95.684l1.5 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.5a1 1 0 01.684.95V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+          Llamar ahora
+        </Button>
+      </div>
+    </div>
+  </main>
+  
+  <Footer />
+  <FloatingCTA />
+</Layout>
