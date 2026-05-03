@@ -8,7 +8,13 @@
 >
   <!-- Opciones expandibles -->
   <div id="floating-options" class="flex flex-col gap-2 hidden">
-    <a href="tel:+5491170029897" aria-label="Llamar a cerrajero de urgencia">
+    <a href="tel:+5491170029897" 
+    onclick="window.dataLayer = window.dataLayer || []; window.dataLayer.push({
+    'event': 'generacion_lead',
+    'lead_type': 'telefono',
+    'value': 1000
+  });"
+    aria-label="Llamar a cerrajero de urgencia">
       <button
         class="flex items-center gap-2 px-6 py-3 text-lg font-semibold text-white bg-primary rounded-lg shadow-lg animate-pulse-glow"
       >

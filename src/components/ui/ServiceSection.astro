@@ -169,7 +169,13 @@ const services = [
         <p class="text-muted-foreground mb-4">
           ¿No encontrás tu servicio? Consultanos sin compromiso
         </p>
-        <a href="tel:+5491170029897" class="inline-flex items-center gap-3 bg-primary text-black px-3 py-2 rounded-lg font-bold shadow-lg shadow-primary/30 hover:shadow-primary/50 hover:translate-y-1 transition-all">
+        <a href="tel:+5491170029897" 
+        onclick="window.dataLayer = window.dataLayer || []; window.dataLayer.push({
+    'event': 'generacion_lead',
+    'lead_type': 'telefono',
+    'value': 1000
+  });"
+        class="inline-flex items-center gap-3 bg-primary text-black px-3 py-2 rounded-lg font-bold shadow-lg shadow-primary/30 hover:shadow-primary/50 hover:translate-y-1 transition-all">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
